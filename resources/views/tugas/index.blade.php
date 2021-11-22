@@ -31,8 +31,8 @@
 			<td>{{ $tgs->NamaTugas}}</td>
 			<td>{{ $tgs->Status}}</td>
 			<td>
-				<a class="btn btn-success" href="/task/edit/{{ $tgs->IDTugas }}">Edit</a>
-				<a class="btn btn-danger" href="/task/hapus/{{ $tgs->IDTugas }}">Hapus</a>
+				<a class="btn btn-success" href="/task/edit/{{ $tgs->ID }}">Edit</a>
+				<a class="btn btn-danger" href="/task/hapus/{{ $tgs->ID }}">Hapus</a>
 			</td>
 		</tr>
 		@endforeach

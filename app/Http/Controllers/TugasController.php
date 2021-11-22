@@ -29,13 +29,13 @@ class TugasController extends Controller
 
     public function edit($id)
     {
-	$tugas = DB::table('tugas')->where('IDTugas',$id)->get();
+	$tugas = DB::table('tugas')->where('ID',$id)->get();
 	return view('tugas.edit',['tugas' => $tugas]);
     }
 
     public function update(Request $request)
     {
-	DB::table('tugas')->where('IDTugas', $request->idtugas)->update([
+	DB::table('tugas')->where('ID', $request->id)->update([
 		'IDTugas' => $request->idtugas,
 		'Tanggal' => $request->tanggal,
 		'NamaTugas' => $request->namatugas,
@@ -45,7 +45,7 @@ class TugasController extends Controller
     }
     public function hapus($id)
     {
-	DB::table('tugas')->where('IDTugas',$id)->delete();
+	DB::table('tugas')->where('ID',$id)->delete();
 	return redirect('/task');
     }
 }

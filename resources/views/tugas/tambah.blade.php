@@ -15,6 +15,7 @@
         @csrf
        <div class="row mx-5">
            <div class="col-8">
+               <input type="hidden" name="id">
             <div class="mb-3">
                 <label for="IDTugas" class="form-label">IDTugas</label>
                 <input name="idtugas" type="number" class="form-control" id="IDTugas">
