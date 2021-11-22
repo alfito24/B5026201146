@@ -12,7 +12,6 @@
 
 	<br/>
 	<br/>
-
 	@foreach($pegawai as $p)
 	<form action="/pegawai/update" method="post">
 		{{ csrf_field() }}
@@ -24,7 +23,5 @@
 		<input type="submit" value="Simpan Data">
 	</form>
 	@endforeach
-
-
 </body>
 </html>
