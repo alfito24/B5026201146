@@ -45,7 +45,7 @@ class TugasController extends Controller
     }
     public function hapus($id)
     {
-	DB::table('tugas')->where('ID',$id)->delete();
+	DB::table('tugas')->where('IDTugas',$id)->delete();
 	return redirect('/task');
     }
 }
