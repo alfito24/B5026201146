@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -10,21 +10,33 @@
 
     <title>Hello, world!</title>
   </head>
-  <body>
+  <body> --}}
+      @extends('layouts.home')
+      @section('content')
     @foreach ($tugas as $tgs)
     <form action="/task/update" method="post">
         @csrf
        <div class="row mx-5">
-           <div class="col-8">
+           <div class="col-md-10">
             <input type="hidden" name="id" value="{{ $tgs ->ID }}">
             <div class="mb-3">
                 <label for="IDTugas" class="form-label">IDTugas</label>
                 <input value="{{ $tgs->IDTugas }}" name="idtugas" value="" type="number" class="form-control" id="IDTugas" aria-describedby="emailHelp">
             </div>
-            <div class="mb-3">
-                <label for="Tanggal" class="form-label">Tanggal</label>
-                <input value="{{ $tgs->Tanggal }}" name="tanggal" type="datetime" class="form-control" id="Tanggal">
-              </div>
+            <div class="form-group mt-3">
+                <label for="dtpickerdemo" class="col-sm-2 control-label mt-3">Tanggal</label>
+                    <div class='col-md-12 input-group date ' id='dtpickerdemo'>
+                        <input type='text' class="form-control" name="tanggal"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#dtpickerdemo').datetimepicker({format : "YYYY-MM-DD hh:mm", "defaultDate":new Date() });
+                    });
+                </script>
             <div class="mb-3">
                   <label for="NamaTugas" class="form-label">Nama Tugas</label>
                   <input value="{{ $tgs->NamaTugas }}" name="namatugas" type="text" class="form-control" id="NamaTugas">
@@ -32,14 +44,15 @@
                 <div class="mb-3">
                   <label for="status" class="form-label">Status</label>
                   <input value="{{ $tgs->Status }}" name="status" type="text" class="form-control" id="status">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                </div> <br>
+                <button type="submit" class="btn btn-primary mt-5">Submit</button>
            </div>
        </div>
       </form>
     @endforeach
+    @endsection
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   </body>
-</html>
+</html> --}}

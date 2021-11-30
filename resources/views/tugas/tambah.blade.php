@@ -1,44 +1,41 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.home')
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <form action="/task/store" method="post">
-        @csrf
-       <div class="row mx-5">
-           <div class="col-8">
-               <input type="hidden" name="id">
-            <div class="mb-3">
-                <label for="IDTugas" class="form-label">IDTugas</label>
-                <input name="idtugas" type="number" class="form-control" id="IDTugas">
-              </div>
-              <div class="mb-3">
-                <label for="Tanggal" class="form-label">Tanggal</label>
-                <input name="tanggal" type="datetime" class="form-control" id="Tanggal">
-              </div>
-              <div class="mb-3">
-                  <label for="NamaTugas" class="form-label">Nama Tugas</label>
-                  <input name="namatugas" type="text" class="form-control" id="NamaTugas">
+@section('title', 'Data Tugas')
+@section('content')
+    <h1 class="text-center">Tambah Data Absen</h1>
+   <a href="/task"> <p class="btn btn-primary">Kembali</p></a>
+	<form action="/task/store" method="post">
+		{{ csrf_field() }}
+		<input type="hidden" name="id""> <br/>
+        <div class="form-group">
+            <label for="idtugas">ID Tugas</label>
+            <input type="number" class="form-control" id="idtugas" name="idtugas">
+        </div>
+        <div class="form-group">
+            <label for="namatugas">Nama Tugas</label>
+            <input type="text" class="form-control" id="namatugas" name="namatugas">
+        </div>
+        <div class="form-group mt-3">
+            <label for="dtpickerdemo" class="col-sm-2 control-label mt-3">Tanggal</label>
+                <div class='col-md-12 input-group date ' id='dtpickerdemo'>
+                    <input type='text' class="form-control" name="tanggal"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
                 </div>
-                <div class="mb-3">
-                  <label for="status" class="form-label">Status</label>
-                  <input name="status" type="text" class="form-control" id="status">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-           </div>
-       </div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#dtpickerdemo').datetimepicker({format : "YYYY-MM-DD hh:mm", "defaultDate":new Date() });
+                });
+            </script>
+            <br>
+		Status
+        <input type="radio" id="hadir" name="status" value="S">
+        <label for="hadir">Selesai</label>
+        <input type="radio" id="tidak" name="status" value="B">
+        <label for="tidak">Belum Selesai</label><br>
 
-      </form>
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-  </body>
-</html>
+		<input class="btn btn-primary" type="submit" value="Simpan Data">
+	</form>
+    @endsection
