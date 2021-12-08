@@ -9,7 +9,7 @@ class PegawaiController extends Controller
 {
     public function index()
     {
-    	$pegawai = DB::table('pegawai')->get();
+    	$pegawai = DB::table('pegawai')->paginate(10);
     	return view('pegawai.index',['pegawai' => $pegawai]);
     }
     public function tambah()
@@ -18,6 +18,14 @@ class PegawaiController extends Controller
 	return view('pegawai.tambah');
 
     }
+    public function cari(Request $request)
+	{
+		$cari = $request->cari;
+		$pegawai = DB::table('pegawai')
+		->where('pegawai_nama','like',"%".$cari."%")
+		->paginate();
+		return view('pegawai.index',['pegawai' => $pegawai]);
+	}
     public function store(Request $request)
     {
 	DB::table('pegawai')->insert([

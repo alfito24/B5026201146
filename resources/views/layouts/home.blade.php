@@ -4,6 +4,7 @@
     @include('layouts.css')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -32,6 +33,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/home">Home</a></li>

@@ -1,8 +1,9 @@
 @extends('layouts.home')
 
 @section('title', 'Data Tugas')
+@section('crumb', 'Halaman Tugas')
 @section('content')
-    <h1 class="text-center">Tambah Data Absen</h1>
+    <h1 class="text-center">Tambah Data Tugas</h1>
    <a href="/task"> <p class="btn btn-primary">Kembali</p></a>
 	<form action="/task/store" method="post">
 		{{ csrf_field() }}

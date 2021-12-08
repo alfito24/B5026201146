@@ -4,8 +4,6 @@
 @section('crumb', 'Halaman Absen')
 @section('content')
     <h1 class="text-center">Edit Data Absen</h1>
-
-
 	@foreach($absen as $p)
 	<form action="/absen/update" method="post">
 		{{ csrf_field() }}

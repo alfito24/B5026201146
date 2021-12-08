@@ -1,50 +1,7 @@
-@extends('layouts.home')
-@section('content')
-@foreach ($tugas as $tgs)
-<form action="/task/update" method="post">
-  @csrf
- <div class="row mx-5">
-     <div class="col-md-10">
-      <input type="hidden" name="id" value="{{ $tgs ->ID }}">
-      <div class="mb-3">
-          <label for="IDTugas" class="form-label">IDTugas</label>
-          <input value="{{ $tgs->IDTugas }}" name="idtugas" value="" type="number" class="form-control" id="IDTugas" aria-describedby="emailHelp">
-      </div>
-      <div class="form-group mt-3">
-          <label for="dtpickerdemo" class="col-sm-2 control-label mt-3">Tanggal</label>
-              <div class='col-md-12 input-group date ' id='dtpickerdemo'>
-                  <input type='text' class="form-control" name="tanggal"/>
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-          </div>
-          <script type="text/javascript">
-              $(function () {
-                  $('#dtpickerdemo').datetimepicker({format : "YYYY-MM-DD hh:mm", "defaultDate":new Date() });
-              });
-          </script>
-      <div class="mb-3">
-            <label for="NamaTugas" class="form-label">Nama Tugas</label>
-            <input value="{{ $tgs->NamaTugas }}" name="namatugas" type="text" class="form-control" id="NamaTugas">
-          </div>
-          <div class="mb-3">
-            <label for="status" class="form-label">Status</label>
-            <input value="{{ $tgs->Status }}" name="status" type="text" class="form-control" id="status">
-          </div> <br>
-          <button type="submit" class="btn btn-primary mt-5">Submit</button>
-     </div>
- </div>
-</form>
-@endforeach
-@endsection
 
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-	<h3>Edit Pegawai</h3>
+@extends('layouts.home')
+	@section('content')
+    <h3>Edit Pegawai</h3>
 
 	<a href="/pegawai"> Kembali</a>
 
@@ -53,13 +10,35 @@
 	@foreach($pegawai as $p)
 	<form action="/pegawai/update" method="post">
 		{{ csrf_field() }}
-		<input type="hidden" name="id" value="{{ $p->pegawai_id }}"> <br/>
+        <div class="row mx-5">
+            <div class="col-md-10">
+             <div class="mb-3">
+                 <label for="nama" class="form-label">Nama Pegawai</label>
+                 <input value="{{ $p->pegawai_nama}}" name="nama" type="text" class="form-control" id="merk">
+             </div>
+             <div class="mb-3">
+                   <label for="jabatan" class="form-label">Jabatan</label>
+                   <input value="{{ $p->pegawai_jabatan }}" name="jabatan" type="number" class="form-control" id="jabatan">
+            </div>
+            <div class="mb-3">
+                <label for="umur" class="form-label">Umur</label>
+                <input value="{{ $p->pegawai_umur }}" name="umur" type="number" class="form-control" id="umur"> <br>
+            <div class="mb-3 mt-3">
+                <label for="alamat" class="form-label">Alamat</label> <br>
+                <textarea class="mt-3 col-12" name="alamat" id="alamat" cols="60" rows="5">{{ $p->pegawai_alamat }}</textarea>
+            </div>
+                 <button type="submit" class="btn btn-primary mt-5">Submit</button>
+            </div>
+        </div>
+		{{-- <input type="hidden" name="id" value="{{ $p->pegawai_id }}"> <br/>
 		Nama <input type="text" required="required" name="nama" value="{{ $p->pegawai_nama }}"> <br/>
 		Jabatan <input type="text" required="required" name="jabatan" value="{{ $p->pegawai_jabatan }}"> <br/>
 		Umur <input type="number" required="required" name="umur" value="{{ $p->pegawai_umur }}"> <br/>
 		Alamat <textarea required="required" name="alamat">{{ $p->pegawai_alamat }}</textarea> <br/>
-		<input type="submit" value="Simpan Data">
+		<input type="submit" value="Simpan Data"> --}}
 	</form>
 	@endforeach
-</body>
-</html>
+
+    @endsection
+
+

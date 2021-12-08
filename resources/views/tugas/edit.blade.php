@@ -13,6 +13,7 @@
   <body> --}}
       @extends('layouts.home')
       @section('content')
+      @section('crumb', 'Halaman Tugas')
     @foreach ($tugas as $tgs)
     <form action="/task/update" method="post">
         @csrf

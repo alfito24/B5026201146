@@ -9,7 +9,11 @@ class TugasController extends Controller
 {
     public function index()
     {
-    	$tugas = DB::table('tugas')->get();
+    	// $tugas = DB::table('tugas')->paginate(10);
+        $tugas = DB::table('tugas')
+        ->join('pegawai', 'tugas.IDTugas', '=', 'pegawai.pegawai_id')
+        ->select('tugas.*', 'pegawai.pegawai_nama')
+        ->paginate(3);
     	return view('tugas.index',['tugas' => $tugas]);
     }
     public function tambah()
@@ -26,6 +30,14 @@ class TugasController extends Controller
 	]);
 	return redirect('/task');
     }
+    public function cari(Request $request)
+	{
+		$cari = $request->cari;
+		$tugas = DB::table('tugas')
+		->where('NamaTugas','like',"%".$cari."%")
+		->paginate();
+		return view('tugas.index',['tugas' => $tugas]);
+	}
 
     public function edit($id)
     {

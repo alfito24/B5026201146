@@ -1,42 +1,28 @@
-{{-- <!DOCTYPE html>
-<html>
-<head>
-    <head>
-        <!doctype html>
-        <html lang="en">
-          <head>
-            <!-- Required meta tags -->
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-
-            <!-- Bootstrap CSS -->
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-	<title>ABSEN PEGAWAI</title>
-</head>
-<body class="container m-4"> --}}
 @extends('layouts.home')
 @section('title', 'Data Absen')
 @section('crumb', 'Halaman Absen')
 	@section('content')
     <h1 class="text-center">Data Absen</h1>
 	<a href="/absen/tambah" class="btn btn-primary" > + Tambah Absen Pegawai Baru</a>
-
+	<form style="margin-top: 20px" class="mt-3" action="/absen/cari" method="GET">
+		<input type="text" name="cari" placeholder="Cari Absen .." value="{{ old('cari') }}">
+		<input class="btn btn-primary" type="submit" value="CARI">
+	</form>
 	<br/>
 	<br/>
 
 	<table class="table table-success table-striped">
 		<tr>
-			<th>ID</th>
-			<th>ID Pegawai</th>
+			<th>No</th>
+			<th>Nama Pegawai</th>
 			<th>Tanggal</th>
 			<th>Status</th>
 			<th>Opsi</th>
 		</tr>
 		@foreach($absen as $p)
 		<tr>
-			<td>{{ $p->ID }}</td>
-			<td>{{ $p->IDPegawai }}</td>
+			<td>{{ $loop->iteration }}</td>
+			<td>{{ $p->pegawai_nama }}</td>
 			<td>{{ $p->Tanggal }}</td>
 			<td>{{ $p->Status }}</td>
 			<td>
@@ -47,8 +33,5 @@
 		</tr>
 		@endforeach
 	</table>
+    {{ $absen->links() }}
     @endsection
-
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
-</html> --}}
