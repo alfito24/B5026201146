@@ -1,6 +1,6 @@
     @extends('layouts.home')
     @section('content')
-    @section('crumb', 'Halaman Pensil')
+    @section('crumb', 'Pensil')
   @foreach ($pensil as $p)
   <form action="/pensil/update" method="post">
       @csrf

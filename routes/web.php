@@ -32,6 +32,7 @@ Route::get('/pegawai/tambah','PegawaiController@tambah');
 Route::get('/pegawai/cari','PegawaiController@cari');
 Route::post('/pegawai/store','PegawaiController@store');
 Route::get('/pegawai/edit/{id}','PegawaiController@edit');
+Route::get('/pegawai/detail/{id}','PegawaiController@view');
 Route::post('/pegawai/update','PegawaiController@update');
 Route::get('/pegawai/hapus/{id}','PegawaiController@hapus');
 

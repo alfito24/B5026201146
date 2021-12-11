@@ -14,9 +14,7 @@ class PegawaiController extends Controller
     }
     public function tambah()
     {
-
 	return view('pegawai.tambah');
-
     }
     public function cari(Request $request)
 	{
@@ -40,6 +38,10 @@ class PegawaiController extends Controller
     {
 	$pegawai = DB::table('pegawai')->where('pegawai_id',$id)->get();
 	return view('pegawai.edit',['pegawai' => $pegawai]);
+    }
+    public function view($id){
+    $pegawai = DB::table('pegawai')->where('pegawai_id',$id)->get();
+	return view('pegawai.detail',['pegawai' => $pegawai]);
     }
 public function update(Request $request)
     {

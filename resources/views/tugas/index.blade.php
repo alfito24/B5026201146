@@ -1,4 +1,5 @@
 @extends('layouts.home')
+@section('title', 'Tugas')
 @section('crumb', 'Halaman Tugas')
 @section('content')
       <h1 class="text-center">

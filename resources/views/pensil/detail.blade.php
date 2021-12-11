@@ -1,6 +1,6 @@
 @extends('layouts.home')
 @section('title', 'Data Pensil')
-@section('crumb', 'Halaman Pensil')
+@section('crumb', 'Pensil')
 	@section('content')
     <h1 class="text-center">Data Pensil</h1>
 	<a href="/pensil" class="btn btn-primary" >Kembali</a>

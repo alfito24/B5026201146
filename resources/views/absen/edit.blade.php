@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title', 'Data Absen')
+@section('title', 'Absen')
 @section('crumb', 'Halaman Absen')
 @section('content')
     <h1 class="text-center">Edit Data Absen</h1>

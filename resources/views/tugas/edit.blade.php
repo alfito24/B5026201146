@@ -12,6 +12,7 @@
   </head>
   <body> --}}
       @extends('layouts.home')
+      @section('title', 'Tugas')
       @section('content')
       @section('crumb', 'Halaman Tugas')
     @foreach ($tugas as $tgs)

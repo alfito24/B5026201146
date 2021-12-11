@@ -1,5 +1,5 @@
 @extends('layouts.home')
-@section('title', 'Data Pensil')
+@section('title', 'Pensil')
 @section('crumb', 'Halaman Pensil')
 	@section('content')
     <h1 class="text-center">Data Pensil</h1>

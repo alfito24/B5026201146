@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title', 'Data Tugas')
+@section('title', 'Tugas')
 @section('crumb', 'Halaman Tugas')
 @section('content')
     <h1 class="text-center">Tambah Data Tugas</h1>
