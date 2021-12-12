@@ -18,7 +18,8 @@ class TugasController extends Controller
     }
     public function tambah()
     {
-	return view('tugas.tambah');
+        $pegawai= DB::table('pegawai')->orderBy('pegawai_nama', 'asc')->get();
+	return view('tugas.tambah', compact('pegawai'));
     }
     public function store(Request $request)
     {

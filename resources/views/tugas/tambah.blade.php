@@ -8,9 +8,17 @@
 	<form action="/task/store" method="post">
 		{{ csrf_field() }}
 		<input type="hidden" name="id""> <br/>
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="idtugas">ID Tugas</label>
             <input type="number" class="form-control" id="idtugas" name="idtugas">
+        </div> --}}
+        <div class="form-group">
+            <label for="IDPegawai">Nama Pegawai</label>
+            <select class="col-md-12" id="IDPegawai" name="IDPegawai" required="required">
+                @foreach($pegawai as $peg)
+                    <option class="mb-3" value="{{ $peg->pegawai_id }}"> {{ $peg->pegawai_nama }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label for="namatugas">Nama Tugas</label>
