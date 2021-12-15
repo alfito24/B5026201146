@@ -20,7 +20,7 @@
 			<td>{{ $loop->iteration }}</td>
 			<td>{{ $p->KodeBarang }}</td>
 			<td>{{ $p->Jumlah }}</td>
-			<td>{{ $p->Harga }}</td>
+			<td>{{ number_format($p->Harga) }}</td>
             <td>{{ number_format($p->Jumlah * $p->Harga) }}</td>
 			<td>
 				<a href="/keranjang/beli" class="btn btn-success" >Beli</a>
