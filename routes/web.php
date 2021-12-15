@@ -61,8 +61,10 @@ Route::get('/pensil/detail/{id}','PensilController@detail');
 Route::post('/pensil/update','PensilController@update');
 Route::get('/pensil/hapus/{id}','PensilController@hapus');
 
-
-
+Route::get('/keranjang','KeranjangController@index');
+Route::get('/keranjang/beli','KeranjangController@tambah');
+Route::post('/keranjang/store','KeranjangController@store');
+Route::get('/keranjang/hapus/{id}','KeranjangController@hapus');
 
 Route::get('/home', function () {
     return view('layouts.beranda');
